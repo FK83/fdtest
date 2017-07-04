@@ -1,0 +1,15 @@
+Package: fdtest
+Type: Package
+Title: Randomization test for forecast dominance
+Version: 0.01
+Date: 2017-07-04
+Author: Fabian Krueger
+Maintainer: Fabian Krueger <fabian.krueger83@gmail.com>
+Description: Test to compare forecasts across an entire family of loss 
+    functions, as proposed by Ehm and Krueger ('Forecast dominance testing via sign randomization', preprint, 2017).
+License: GPL (>= 2)
+Imports: Rcpp (>= 0.12.11), murphydiagram
+Depends:
+    R (>= 3.00)
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.0.1
