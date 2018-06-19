@@ -52,10 +52,6 @@ arma::vec permhelper(arma::mat m, int select, int nperm){
     }
   }
   
-  if (select != 3){
-    return ret;
-  } else if (select == 3){
-    return abs(ret);
-  }  
+  return ret;
   
 }
