@@ -2,10 +2,10 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 csample <- function(x, size, replace, prob = as.numeric( c())) {
-    .Call('fdtest_csample', PACKAGE = 'fdtest', x, size, replace, prob)
+    .Call('_fdtest_csample', PACKAGE = 'fdtest', x, size, replace, prob)
 }
 
 permhelper <- function(m, select, nperm) {
-    .Call('fdtest_permhelper', PACKAGE = 'fdtest', m, select, nperm)
+    .Call('_fdtest_permhelper', PACKAGE = 'fdtest', m, select, nperm)
 }
 

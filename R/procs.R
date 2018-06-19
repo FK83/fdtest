@@ -62,6 +62,9 @@ fdtest <- function(fc, functional = "expectile", alpha = 0.5,
       sum(z[z >= 0]^2)
     }
     auxin <- 1
+  } else if (test_functional == "abs"){
+    teststat <- function(z) sum(abs(z))
+    auxin <- 3
   }
 
   # Compute test statistic (functional of theta)
@@ -71,7 +74,7 @@ fdtest <- function(fc, functional = "expectile", alpha = 0.5,
   Bpy <- permhelper(S_diff, auxin, np)
 
   # p-value
-  pval <- mean(Bpy > teststat_sample)
+  pval <- mean(Bpy > teststat_sample)  
 
   # timing
   t1 <- Sys.time()

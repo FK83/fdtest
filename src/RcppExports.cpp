@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // csample
 arma::uvec csample(IntegerVector x, int size, bool replace, NumericVector prob);
-RcppExport SEXP fdtest_csample(SEXP xSEXP, SEXP sizeSEXP, SEXP replaceSEXP, SEXP probSEXP) {
+RcppExport SEXP _fdtest_csample(SEXP xSEXP, SEXP sizeSEXP, SEXP replaceSEXP, SEXP probSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -22,7 +22,7 @@ END_RCPP
 }
 // permhelper
 arma::vec permhelper(arma::mat m, int select, int nperm);
-RcppExport SEXP fdtest_permhelper(SEXP mSEXP, SEXP selectSEXP, SEXP npermSEXP) {
+RcppExport SEXP _fdtest_permhelper(SEXP mSEXP, SEXP selectSEXP, SEXP npermSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -35,8 +35,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"fdtest_csample", (DL_FUNC) &fdtest_csample, 4},
-    {"fdtest_permhelper", (DL_FUNC) &fdtest_permhelper, 3},
+    {"_fdtest_csample", (DL_FUNC) &_fdtest_csample, 4},
+    {"_fdtest_permhelper", (DL_FUNC) &_fdtest_permhelper, 3},
     {NULL, NULL, 0}
 };
 

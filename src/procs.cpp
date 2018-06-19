@@ -33,20 +33,29 @@ arma::vec permhelper(arma::mat m, int select, int nperm){
     m.rows(perms) = -m.rows(perms);
     // take column means of permuted matrix
     arma::vec out = trans(mean(m, 0));
-    // pick out positive column means
-    arma::uvec inds = find(out > 0);
-    arma::vec out2 = out.rows(inds);
-    // depending on functional: take either sum of squares or sum
-    arma::vec out3 = arma::vec();
-    if (select == 1){
-      out3 = square(out2);
-    } else if (select == 2){
-      out3 = out2;
+    if (select != 3){
+      // pick out positive column means
+      arma::uvec inds = find(out > 0);
+      arma::vec out2 = out.rows(inds);
+      // depending on functional: take either sum of squares or sum
+      arma::vec out3 = arma::vec();
+      if (select == 1){
+        out3 = square(out2);
+      } else if (select == 2){
+        out3 = out2;
+      }
+      // enter result
+      ret(jj - 1) = sum(out3);   
+    } else if (select == 3){
+      arma::vec out2 = arma::abs(out);
+      ret(jj - 1) = sum(out2);
     }
-    // enter result
-    ret(jj - 1) = sum(out3); 
-    
   }
-    
-  return ret;
+  
+  if (select != 3){
+    return ret;
+  } else if (select == 3){
+    return abs(ret);
+  }  
+  
 }
